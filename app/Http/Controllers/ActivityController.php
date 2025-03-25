@@ -11,7 +11,8 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        //
+        $activities = \App\Models\Activity::all();
+        return view('activities.index', compact('activities'));
     }
 
     /**
@@ -19,7 +20,7 @@ class ActivityController extends Controller
      */
     public function create()
     {
-        //
+        return view('activities.create');
     }
 
     /**
@@ -27,7 +28,26 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'type' => 'required|in:surf,windsurf,kayak,atv,hot air balloon',
+            'user_id' => 'required|exists:users,id',
+            'datetime' => 'required|date_format:Y-m-d\TH:i',
+            'paid' => 'nullable|boolean',
+            'notes' => 'nullable|string',
+            'satisfaction' => 'nullable|integer|min:0|max:10',
+        ]);
+
+        $activity = new \App\Models\Activity();
+        $activity->type = $validatedData['type'];
+        $activity->user_id = $validatedData['user_id'];
+        $activity->datetime = $validatedData['datetime'];
+        $activity->paid = $validatedData['paid'] ?? false;
+        $activity->notes = $validatedData['notes'];
+        $activity->satisfaction = $validatedData['satisfaction'];
+
+        $activity->save();
+
+        return redirect()->route('activities.index')->with('success', 'Actividad creada exitosamente.');
     }
 
     /**
@@ -35,7 +55,8 @@ class ActivityController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $activity = \App\Models\Activity::findOrFail($id);
+        return view('activities.show', compact('activity'));
     }
 
     /**
@@ -43,7 +64,8 @@ class ActivityController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $activity = \App\Models\Activity::findOrFail($id);
+        return view('activities.edit', compact('activity'));
     }
 
     /**
@@ -51,7 +73,27 @@ class ActivityController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $activity = \App\Models\Activity::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'type' => 'required|in:surf,windsurf,kayak,atv,hot air balloon',
+            'user_id' => 'required|exists:users,id',
+            'datetime' => 'required|date_format:Y-m-d\TH:i',
+            'paid' => 'nullable|boolean',
+            'notes' => 'nullable|string',
+            'satisfaction' => 'nullable|integer|min:0|max:10',
+        ]);
+
+        $activity->type = $validatedData['type'];
+        $activity->user_id = $validatedData['user_id'];
+        $activity->datetime = $validatedData['datetime'];
+        $activity->paid = $validatedData['paid'] ?? false;
+        $activity->notes = $validatedData['notes'];
+        $activity->satisfaction = $validatedData['satisfaction'];
+
+        $activity->save();
+
+        return redirect()->route('activities.index')->with('success', 'Actividad actualizada exitosamente.');
     }
 
     /**
@@ -59,6 +101,9 @@ class ActivityController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $activity = \App\Models\Activity::findOrFail($id);
+        $activity->delete();
+
+        return redirect()->route('activities.index')->with('success', 'Actividad eliminada exitosamente.');
     }
 }

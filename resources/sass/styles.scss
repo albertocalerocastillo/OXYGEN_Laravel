@@ -1,0 +1,51 @@
+@import './components/navbar.scss';
+@import './components/footer.scss';
+@import './pages/index.scss';
+@import './pages/aboutUs.scss';
+@import './pages/rooms.scss';
+@import './pages/roomsDetails.scss';
+@import './pages/offers.scss';
+@import './pages/contact.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@import './mixin.scss';
+@import './variables.scss';
+
+
+html,
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+body {
+    min-width: 320px
+}
+
+.swiper-button-prev::after {
+    background: #ffffff;
+    padding: 1rem;
+    color: #000000;
+    margin-bottom: 12rem;
+    z-index: 10;
+}
+
+.swiper-button-next::after {
+    background: $gold;
+    padding: 1rem;
+    color: $white;
+    margin-bottom: 12rem;
+    z-index: 10;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: $gold !important;
+}
+
+:root {
+    --swiper-navigation-size: .5rem !important;
+}

@@ -1,0 +1,218 @@
+@import "../mixin.scss";
+@import "../variables.scss";
+
+.offers {
+
+    &__article {
+        text-align: start;
+        margin-bottom: 2rem;
+
+        &__photo {
+            position: relative;
+
+            &__img {
+                width: 100%;
+                padding: 1rem;
+                margin-top: 2rem;
+            }
+
+            &__prices {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                margin: 10%;
+                text-align: end;
+
+                &__sinoferta {
+                    font-family: 'Archivo';
+                    font-weight: 700;
+                    font-size: 1.4rem;
+                    line-height: 1.5rem;
+                    text-decoration: line-through;
+                    color: $gold;
+                    margin-bottom: 0.6rem;
+                }
+
+                &__conoferta {
+                    font-family: 'Archivo';
+                    font-weight: 700;
+                    font-size: 1.9rem;
+                    line-height: 2rem;
+                    color: #DE5777;
+                }
+ 
+                &__sinoferta {
+                    span {
+                        font-size: 0.7rem;
+                        line-height: 0.75rem;
+                        text-decoration: none;
+                        text-decoration: line-through;
+                    }
+                }
+                &__conoferta {
+                    span {
+                        font-size: 0.7rem;
+                        line-height: 0.75rem;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        &__subtitle {
+            font-family: 'Archivo';
+            font-weight: 700;
+            font-size: 0.9rem;
+            line-height: 1rem;
+            letter-spacing: 2.8px;
+            color: #777777;
+            padding: 0 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        &__title {
+            font-family: 'Old Standard TT';
+            font-weight: 400;
+            font-size: 2.5rem;
+            line-height: 3rem;
+            letter-spacing: -1.44px;
+            color: $gris2;
+            padding: 0 2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        &__description {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 0.875rem;
+            line-height: 1.5rem;
+            color: #777777;
+            padding: 0 2.4rem;
+            margin-bottom: 1rem;
+        }
+
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, auto);
+            grid-auto-flow: column;
+            gap: 0.4rem;
+            list-style: none;
+            padding: 0 2.4rem;
+            margin-bottom: 1rem;
+
+            &__item {
+                display: inline-block;
+                padding: 0.4rem 0;
+
+                &__icon {
+                    display: inline-block;
+                }
+
+                &__text {
+                    display: inline-block;
+                    font-family: 'Roboto';
+                    font-weight: 500;
+                    font-size: 1rem;
+                    line-height: 1.1rem;
+                    color: #777777;
+                }
+            }
+        }
+
+        &__button {
+            width: 55%;
+            border: none;
+            border-radius: 0;
+            background: $gold;
+            padding: 1.4rem 0;
+            color: $white;
+            font-family: 'Archivo';
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 2.8px;
+            margin: 0 2.5rem;
+        }
+    }
+}
+
+.popularList {
+    text-align: center;
+    background-color: #222222;
+    margin: 3.5rem 0;
+    padding: 3rem 1rem;
+    position: relative;
+
+
+    &__title {
+        font-family: 'Archivo';
+        font-weight: 500;
+        font-size: 0.9rem;
+        line-height: 1rem;
+        letter-spacing: 2.8px;
+        color: $gold;
+        margin-bottom: 1rem;
+    }
+
+    &__subtitle {
+        font-family: 'Old Standard TT';
+        font-weight: 400;
+        font-size: 2.5rem;
+        line-height: 3rem;
+        letter-spacing: -0.8px;
+        color: $white;
+        margin-bottom: 3rem;
+    }
+
+    &__swiper {
+
+        &__img {
+            width: 100%;
+        }
+
+        &__icons {
+            position: absolute;
+            bottom: 38%;
+            right: 10%;
+        }
+
+        &__info {
+            background-color: $white;
+            padding-top: 3rem;
+            margin-top: -0.5rem;
+
+            &__title {
+                @include rooms-title;
+                text-align: center;
+                margin-top: 0.5rem;
+            }
+
+            &__description {
+                @include rooms-description;
+                font-size: 0.9rem;
+                text-align: center;
+                padding: 0 1.3rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            &__price {
+                font-family: 'Archivo';
+                font-weight: 700;
+                font-size: 1rem;
+                line-height: 1.1rem;
+                color: $gold;
+                padding-bottom: 2rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+
+                a {
+                    text-decoration: none;
+                    color: #BDBDBD;
+                }
+            }
+        }
+    }
+}

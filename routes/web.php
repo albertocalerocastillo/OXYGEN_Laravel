@@ -8,11 +8,14 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\PageController;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
+Route::get('/', [PageController::class, 'index'])->name('home');
+Route::get('/about-us', [PageController::class, 'about'])->name('about');
+Route::get('/contact-us', [PageController::class, 'contact'])->name('contact');
+Route::get('/offers', [PageController::class, 'offers'])->name('offers');
+Route::get('/rooms', [PageController::class, 'rooms'])->name('rooms');
+Route::get('/rooms/details/{id}', [PageController::class, 'roomsDetails'])->name('rooms.details');
 
 Route::resource('activities', ActivityController::class);
 Route::resource('bookings', BookingController::class);

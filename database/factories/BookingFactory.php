@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Booking;
+use App\Models\Room; // Asegúrate de importar el modelo Room
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -33,7 +34,7 @@ class BookingFactory extends Factory
             'checkOutDate' => $this->faker->date(),
             'checkOutTime' => $this->faker->time(),
             'specialRequest' => $this->faker->sentence(),
-            'roomId' => $this->faker->uuid(),
+            'roomId' => Room::inRandomOrder()->first()->id ?? $this->faker->uuid(),
             'status' => $this->faker->randomElement(['pending', 'confirmed', 'cancelled', 'completed']),
             'specialRequestType' => $this->faker->randomElement(['dietary', 'accessibility', 'other']),
             'created_at' => now(),

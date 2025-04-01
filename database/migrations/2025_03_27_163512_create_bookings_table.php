@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('specialRequest')->nullable();
             $table->string('roomId');
             $table->string('status')->nullable();
-            $table->string('specialRequestType');
+            $table->string('specialRequestType')->nullable();
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('name');
             $table->string('type');
-            $table->string('number')->nullable();
+            $table->string('number');
             $table->text('amenities')->nullable();
             $table->decimal('price', 10, 2);
             $table->decimal('discount', 10, 2)->nullable();

@@ -18,11 +18,16 @@ class Booking extends Model
         'roomId',
     ];
 
+    protected $casts = [
+        'checkInDate' => 'date',
+        'checkOutDate' => 'date',
+    ];
+
     /**
      * Get the room that owns the booking.
      */
     public function room(): BelongsTo
     {
-        return $this->belongsTo(Room::class);
+        return $this->belongsTo(Room::class, 'roomId');
     }
 }

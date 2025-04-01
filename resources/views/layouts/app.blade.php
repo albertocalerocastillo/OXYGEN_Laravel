@@ -7,6 +7,8 @@
     <title>@yield('title', 'OXYGEN HOTEL MIRANDA')</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @yield('styles')
 </head>
 
@@ -123,6 +125,26 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/navbar.js') }}"></script>
     <script src="{{ asset('js/slider.js') }}"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+        @if (session('success'))
+            Toastify({
+                text: "{{ session('success') }}",
+                backgroundColor: "#4CAF50",
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+            }).showToast();
+        @elseif (session('error'))
+            Toastify({
+                text: "{{ session('error') }}",
+                backgroundColor: "#f44336",
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+            }).showToast();
+        @endif
+    </script>
     @yield('scripts')
 </body>
 

@@ -62,27 +62,28 @@
         </div>
     </section>
 
-    <form action="">
+    <form action="{{ route('contact.submit') }}" method="POST">
+        @csrf
         <div class="form">
             <div class="form__group">
                 <img class="form__icon" src="{{ asset('images/namecontact.png') }}" alt="Full Name Icon">
-                <input class="form__input" type="text" placeholder="Your full name">
+                <input class="form__input" type="text" placeholder="Your full name" name="name" required>
             </div>
             <div class="form__group">
                 <img class="form__icon" src="{{ asset('images/phonecontact.png') }}" alt="Phone Icon">
-                <input class="form__input" type="tel" placeholder="Add phone number">
+                <input class="form__input" type="tel" placeholder="Add phone number" name="phone">
             </div>
             <div class="form__group">
                 <img class="form__icon" src="{{ asset('images/emailcontact.png') }}" alt="Email Icon">
-                <input class="form__input" type="email" placeholder="Enter email address">
+                <input class="form__input" type="email" placeholder="Enter email address" name="email" required>
             </div>
             <div class="form__group">
                 <img class="form__icon" src="{{ asset('images/subjectcontact.png') }}" alt="Subject Icon">
-                <input class="form__input" type="text" placeholder="Enter subject">
+                <input class="form__input" type="text" placeholder="Enter subject" name="subject">
             </div>
             <div class="form__group">
                 <img class="form__icon form__icon--message" src="{{ asset('images/messagecontact.png') }}" alt="Message Icon">
-                <input class="form__input" id="input__message" type="text" placeholder="Enter message">
+                <input class="form__input" id="input__message" type="text" placeholder="Enter message" name="message" required>
             </div>
             <button class="form__button" type="submit">Send</button>
         </div>

@@ -40,12 +40,10 @@
             <div>
                 <div class="rooms__image">
                     <img src="{{ asset('images/habitacion1.jpg') }}" alt="Habitación">
-                    {{-- TODO: Reemplazar con la imagen real de la habitación --}}
                 </div>
 
                 <div class="rooms__iconos">
                     <img class="rooms__iconos__image" src="{{ asset('images/icons_mobile.png') }}" alt="">
-                    {{-- TODO: Reemplazar con los iconos reales de las comodidades --}}
                 </div>
 
                 <h4 class="rooms__title">{{ $room->name ?? 'Minimal Duplex Room' }}</h4>
@@ -62,7 +60,6 @@
 
         <div class="rooms__pagination">
             <img src="{{ asset('images/pagination.png') }}" alt="Pagination">
-            {{-- TODO: Implementar la paginación real si es necesario --}}
         </div>
 
     </section>

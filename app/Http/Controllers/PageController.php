@@ -39,9 +39,12 @@ class PageController extends Controller
 
         if ($searchTerm) {
             Log::info('Búsqueda de habitaciones:', ['term' => $searchTerm]);
+            $availableRooms = Room::query()
+                ->where('name', 'LIKE', '%' . $searchTerm . '%')
+                ->orWhere('description', 'LIKE', '%' . $searchTerm . '%');
+        } else {
+            $availableRooms = Room::query();
         }
-
-        $availableRooms = Room::query();
 
         if ($checkInDate && $checkOutDate) {
             $availableRooms->whereDoesntHave('bookings', function ($query) use ($checkInDate, $checkOutDate) {

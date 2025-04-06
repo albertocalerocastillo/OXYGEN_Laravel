@@ -11,6 +11,23 @@ class Room extends Model
     /** @use HasFactory<\Database\Factories\RoomFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'amenities',
+        'cancellation',
+        'description',
+        'discount',
+        'name',
+        'number',
+        'offer',
+        'price',
+        'rate',
+        'reviews',
+        'size',
+        'sleeps',
+        'status',
+        'updated_at',
+    ];
+
     /**
      * Get all of the bookings for the Room
      *

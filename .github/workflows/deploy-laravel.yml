@@ -12,6 +12,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Create SSH Key File
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
       - name: SSH into EC2 and deploy
         uses: appleboy/ssh-action@master
         env:
@@ -20,7 +26,7 @@ jobs:
         with:
           host: ${{ env.SSH_HOST }}
           username: ${{ env.SSH_USERNAME }}
-          private_key: "${{ secrets.SSH_PRIVATE_KEY }}"
+          key_path: ~/.ssh/id_rsa
           script: |
             cd /home/alberto/OXYGENLaravel
             git pull origin master

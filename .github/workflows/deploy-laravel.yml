@@ -12,15 +12,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set SSH Private Key Environment Variable
+        run: echo "SSH_PRIVATE_KEY=${{ secrets.SSH_PRIVATE_KEY }}" >> $GITHUB_ENV
+
       - name: SSH into EC2 and deploy
         uses: appleboy/ssh-action@master
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USERNAME: ${{ secrets.SSH_USER }}
+          PRIVATE_KEY: ${{ env.SSH_PRIVATE_KEY }}
         with:
           host: ${{ env.SSH_HOST }}
           username: ${{ env.SSH_USERNAME }}
-          private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          private_key: ${{ env.PRIVATE_KEY }}
           script: |
             cd /home/alberto/OXYGENLaravel
             git pull origin master

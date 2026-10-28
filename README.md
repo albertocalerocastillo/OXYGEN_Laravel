@@ -4,7 +4,7 @@
 
 **La web pública del hotel Miranda migrada a Laravel: páginas Blade, buscador de habitaciones por disponibilidad, reservas y actividades.**
 
-Proyecto del Training React Full Stack de OXYGEN · Sprint 11 (Laravel)
+Proyecto del Training React Full Stack de OXYGEN Academy · Sprint 11 (Laravel)
 
 ![Laravel](https://img.shields.io/badge/Laravel_12-FF2D20?style=flat-square&logo=laravel&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP_8.2-777BB4?style=flat-square&logo=php&logoColor=white)
